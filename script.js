@@ -1,16 +1,20 @@
-var request = new XMLHttpRequest();
-request.open("GET","https://restcountries.com/v3.1/all");
-request.send();
-request.onload = function(){
-    var res = JSON.parse(request.response);
-    console.log(res);
-    for(var i=0;i<res.length;i++){
-        console.log(res[i].region);
-    for(var j=0;j<res.length;j++){
-        console.log(res[j].name.common);
-        for(var k=0;k<res.length;k++){
-            console.log(res[k].subregion);  
-        }  
-    }    
+var obj1 = {name:"Person 1",age:5};
+var obj2 = {age:5,name:"Person 1"};
+
+var flag=true;
+
+if(Object.keys(obj1).length==Object.keys(obj2).length){
+    for(key in obj1) { 
+        if(obj1[key] == obj2[key]) {
+            continue;
+        }
+        else {
+            flag=false;
+            break;
+        }
+    }
 }
+else {
+    flag=false;
 }
+console.log("is object equal"+flag);
